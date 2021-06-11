@@ -12,20 +12,20 @@ public class Historico {
     {
         this.historicoJogadas.push(jogadas);
     }
+
     public void removeJogada()
     {
         this.historicoJogadas.pop();
     }
 
-    public void visualizaHistoricoJogadas()
-    {
+    public void visualizaHistoricoJogadas() {
         Jogadas temporario;
         Stack pilhaTemporaria = new Stack();
-        while (historicoJogadas.empty() == false)
+        while (!historicoJogadas.empty())
         {
             pilhaTemporaria.push(historicoJogadas.pop());
         }
-        while(pilhaTemporaria.empty() == false)
+        while(!pilhaTemporaria.empty())
         {
             temporario = (Jogadas) pilhaTemporaria.pop();
             temporario.mostraJogada();

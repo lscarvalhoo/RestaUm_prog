@@ -7,8 +7,7 @@ public class Posicao {
 
     public Posicao() {}
 
-    Posicao(byte horizontal, byte vertical)
-    {
+    Posicao(byte horizontal, byte vertical) {
         this.horizontal = horizontal;
         this.vertical = vertical;
     }
@@ -22,5 +21,6 @@ public class Posicao {
     {
         this.vertical = vertical;
     }
+
 
 }
