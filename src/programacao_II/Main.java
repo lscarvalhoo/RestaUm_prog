@@ -11,7 +11,7 @@ public class Main
                 Posicao posicaoFinal = new Posicao((byte)3, (byte) 3);
                 tabuleiro.defineParada(posicaoFinal);
                 System.out.println("Fim de jogo, sobram: "  /*numeroPeças*/ );
-                tabuleiro.mostrarTabuleiro();
+                tabuleiro.mosrtarResultadoFinal();
                 tabuleiro.jogada();
 
 

@@ -46,6 +46,19 @@ public class Tabuleiro {
         }
     }
 
+    public void mosrtarResultadoFinal() {
+        for (byte horizontalLoop = 0; horizontalLoop < 7; horizontalLoop++) {
+            System.out.println(" ");
+            for (byte verticalLoop = 0; verticalLoop < 7; verticalLoop++) {
+                if (vetorTabuleiro[horizontalLoop][verticalLoop] == 2) {
+                    System.out.println(" ");
+                } else {
+                    System.out.println(vetorTabuleiro[horizontalLoop][verticalLoop] + " ");
+                }
+            }
+            System.out.println("\n");
+        }
+    }
 
     public boolean exitemJogadasPosiveis() {
         for (byte horizontalLoop = 0; horizontalLoop < 7; horizontalLoop++) {
@@ -71,19 +84,18 @@ public class Tabuleiro {
 
                 if (verticalLoop + 2 >= 0 && verticalLoop + 2 <= 6)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
-                            vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 &&
-                            vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1)
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop + 2] == 0 &&
+                            vetorTabuleiro[horizontalLoop][verticalLoop  + 1] == 1)
                     {
                         return true;
                     }
                 }
 
-                if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 6)
+                if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 9)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
-                            vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 &&
-                            vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1)
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 0 &&
+                            vetorTabuleiro[horizontalLoop][verticalLoop - 2] == 1 &&
+                            vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
                     {
                         return true;
                     }
@@ -245,8 +257,8 @@ public class Tabuleiro {
                 }
                 if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 6)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop  - 2] == 0 &&
-                            vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1 &&
+                            vetorTabuleiro[horizontalLoop][verticalLoop  - 2] == 0)
                     {
                         Posicao posicaoInicialDireitaParaEsquerda = new Posicao(horizontalLoop, verticalLoop);
                         Posicao posicaoFinalDireitaParaEsquerda = new Posicao(horizontalLoop, (byte) (verticalLoop - 2));
