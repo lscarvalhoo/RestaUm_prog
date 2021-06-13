@@ -7,20 +7,13 @@ public class Posicao {
 
     public Posicao() {}
 
-    Posicao(byte horizontal, byte vertical) {
-        this.horizontal = horizontal;
-        this.vertical = vertical;
-    }
+    Posicao(byte horizontal, byte vertical) {  this.horizontal = horizontal; this.vertical = vertical; }
 
-    public void setHorizontal(byte horizontal)
-    {
-        this.horizontal = horizontal;
-    }
+    public void setHorizontal(byte horizontal) {  this.horizontal = horizontal; }
+    public void setVertical(byte vertical) { this.vertical = vertical; }
 
-    public void setVertical(byte vertical)
-    {
-        this.vertical = vertical;
-    }
+    public byte getHorizontal() { return horizontal; }
+    public byte getVertical() { return vertical; }
 
 
 }

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Historico {
 
-    private Stack historicoJogadas = new Stack();
+    private final Stack historicoJogadas = new Stack();
 
     Historico(){}
 

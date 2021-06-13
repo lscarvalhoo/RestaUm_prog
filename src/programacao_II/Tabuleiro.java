@@ -2,7 +2,7 @@ package programacao_II;
 
 public class Tabuleiro {
 
-    byte vetorTabuleiro[][];
+    byte[][] vetorTabuleiro;
     Posicao resposta;
 
     int jogadasBemSucedidas = 0;
@@ -34,12 +34,12 @@ public class Tabuleiro {
 
     public void mostrarTabuleiro() {
         for (byte horizontalLoop = 0; horizontalLoop < 7; horizontalLoop++) {
-            System.out.println(" ");
+            System.out.println("  ");
             for (byte verticalLoop = 0; verticalLoop < 7; verticalLoop++) {
                 if (vetorTabuleiro[horizontalLoop][verticalLoop] == 2) {
-                    System.out.println(" ");
+                    System.out.print("  ");
                 } else {
-                    System.out.println(vetorTabuleiro[horizontalLoop][verticalLoop] + " ");
+                    System.out.print(vetorTabuleiro[horizontalLoop][verticalLoop] + " ");
                 }
             }
             System.out.println("\n");
@@ -51,9 +51,9 @@ public class Tabuleiro {
             System.out.println(" ");
             for (byte verticalLoop = 0; verticalLoop < 7; verticalLoop++) {
                 if (vetorTabuleiro[horizontalLoop][verticalLoop] == 2) {
-                    System.out.println(" ");
+                    System.out.print(" ");
                 } else {
-                    System.out.println(vetorTabuleiro[horizontalLoop][verticalLoop] + " ");
+                    System.out.print(vetorTabuleiro[horizontalLoop][verticalLoop] + " ");
                 }
             }
             System.out.println("\n");
@@ -66,36 +66,37 @@ public class Tabuleiro {
                 if (horizontalLoop + 2 >= 0 && horizontalLoop + 2 <= 6)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
-                            vetorTabuleiro[horizontalLoop + 2][verticalLoop] == 0 &&
-                            vetorTabuleiro[horizontalLoop + 1][verticalLoop] == 1)
+                        vetorTabuleiro[horizontalLoop + 2][verticalLoop] == 0 &&
+                        vetorTabuleiro[horizontalLoop + 1][verticalLoop] == 1)
                     {
                         return true;
                     }
                 }
-                if (horizontalLoop - 2 >= 0 && horizontalLoop + 2 < 9)
+                if (horizontalLoop - 2 >= 0  && horizontalLoop + 2 < 9)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
-                            vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 &&
-                            vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1)
+                        vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 &&
+                        vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1)
                     {
                         return true;
                     }
                 }
 
-                if (verticalLoop + 2 >= 0 && verticalLoop + 2 <= 6)
+                if (verticalLoop + 2 <= 6 && verticalLoop >= 0)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop + 2] == 0 &&
-                            vetorTabuleiro[horizontalLoop][verticalLoop  + 1] == 1)
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
+                        vetorTabuleiro[horizontalLoop][verticalLoop + 2] == 0 &&
+                        vetorTabuleiro[horizontalLoop][verticalLoop  + 1] == 1)
                     {
                         return true;
                     }
                 }
 
-                if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 9)
+                if (verticalLoop - 2 >= 0 && verticalLoop - 2 >= 0)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 0 &&
-                            vetorTabuleiro[horizontalLoop][verticalLoop - 2] == 1 &&
-                            vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
+                        vetorTabuleiro[horizontalLoop][verticalLoop - 2] == 1 &&
+                        vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
                     {
                         return true;
                     }
@@ -112,7 +113,8 @@ public class Tabuleiro {
             {
                 if (horizontalLoop + 2 >= 0 && horizontalLoop + 2 <= 6)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop + 2][verticalLoop] == 0 &&
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
+                        vetorTabuleiro[horizontalLoop + 2][verticalLoop] == 0 &&
                         vetorTabuleiro[horizontalLoop + 1 ][verticalLoop] == 1)
                     {
                         Posicao posicaoInicialCimaParaBaixo = new Posicao(horizontalLoop, verticalLoop);
@@ -139,14 +141,14 @@ public class Tabuleiro {
                                 {
                                     jogadasBemSucedidas++;
                                     System.out.println("  -VALIDO  ");
-                                    System.out.println(" Finalizado");
-                                    System.out.println(" Jogadas Finais : " + jogadasBemSucedidas);
-                                    System.out.println(" Jogadas Realizadas : " + jogadasBemSucedidas);
+                                    System.out.printf(" Finalizado");
+                                    System.out.printf(" Jogadas Finais : " + jogadasBemSucedidas);
+                                    System.out.printf(" Jogadas Realizadas : " + jogadasBemSucedidas);
                                     System.out.println(" Resultado ");
                                     mostrarTabuleiro();
                                     System.out.println(" ");
                                     armazenaHistoricoJogadas.visualizaHistoricoJogadas();
-                                    System.out.println("\n\n\n");
+                                    System.out.println("  ");
                                 }
                             }
                         }
@@ -159,7 +161,7 @@ public class Tabuleiro {
                     }
                 }
 
-                if (horizontalLoop - 2 >= 0 && horizontalLoop + 2 < 9)
+                if (horizontalLoop - 2 >= 0)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 &&
                         vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1)
@@ -188,14 +190,14 @@ public class Tabuleiro {
                                 {
                                     jogadasBemSucedidas++;
                                     System.out.println("  -VALIDO  ");
-                                    System.out.println(" Finalizado");
-                                    System.out.println(" Jogadas Finais : " + jogadasBemSucedidas);
-                                    System.out.println(" Jogadas Realizadas : " + jogadasBemSucedidas);
-                                    System.out.println(" Resultado ");
+                                    System.out.printf(" Finalizado");
+                                    System.out.printf(" Jogadas Finais : " + jogadasBemSucedidas);
+                                    System.out.printf(" Jogadas Realizadas : " + jogadasBemSucedidas);
+                                    System.out.printf(" Resultado ");
                                     mostrarTabuleiro();
                                     System.out.println(" ");
                                     armazenaHistoricoJogadas.visualizaHistoricoJogadas();
-                                    System.out.println("\n\n\n");
+                                    System.out.println("  ");
                                 }
                             }
                         }
@@ -207,7 +209,7 @@ public class Tabuleiro {
                         armazenaHistoricoJogadas.removeJogada();
                     }
                 }
-                if (verticalLoop + 2 >= 0 && verticalLoop + 2 <= 6)
+                if (verticalLoop + 2 <= 6)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop  + 2] == 0 &&
                             vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
@@ -236,14 +238,14 @@ public class Tabuleiro {
                                 {
                                     jogadasBemSucedidas++;
                                     System.out.println("  -VALIDO  ");
-                                    System.out.println(" Finalizado");
-                                    System.out.println(" Jogadas Finais : " + jogadasBemSucedidas);
-                                    System.out.println(" Jogadas Realizadas : " + jogadasBemSucedidas);
+                                    System.out.print(" Finalizado");
+                                    System.out.print(" Jogadas Finais : " + jogadasBemSucedidas);
+                                    System.out.print(" Jogadas Realizadas : " + jogadasBemSucedidas);
                                     System.out.println(" Resultado ");
                                     mostrarTabuleiro();
                                     System.out.println(" ");
                                     armazenaHistoricoJogadas.visualizaHistoricoJogadas();
-                                    System.out.println("\n\n\n");
+                                    System.out.println("");
                                 }
                             }
                         }
@@ -255,7 +257,7 @@ public class Tabuleiro {
                         armazenaHistoricoJogadas.removeJogada();
                     }
                 }
-                if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 6)
+                if (verticalLoop - 2 >= 0)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1 &&
                             vetorTabuleiro[horizontalLoop][verticalLoop  - 2] == 0)
@@ -284,19 +286,19 @@ public class Tabuleiro {
                                 {
                                     jogadasBemSucedidas++;
                                     System.out.println("  -VALIDO  ");
-                                    System.out.println(" Finalizado");
-                                    System.out.println(" Jogadas Finais : " + jogadasBemSucedidas);
-                                    System.out.println(" Jogadas Realizadas : " + jogadasBemSucedidas);
-                                    System.out.println(" Resultado ");
+                                    System.out.print(" Finalizado");
+                                    System.out.print(" Jogadas Finais : " + jogadasBemSucedidas);
+                                    System.out.print(" Jogadas Realizadas : " + jogadasBemSucedidas);
+                                    System.out.print(" Resultado ");
                                     mostrarTabuleiro();
                                     System.out.println(" ");
                                     armazenaHistoricoJogadas.visualizaHistoricoJogadas();
-                                    System.out.println("\n\n\n");
+                                    System.out.println(" ");
                                 }
                             }
                         }
                         vetorTabuleiro[posicaoFinalDireitaParaEsquerda.horizontal][posicaoFinalDireitaParaEsquerda.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal][posicaoInicialDireitaParaEsquerda.vertical] = 1;
+                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal][posicaoInicialDireitaParaEsquerda.vertical] = 0;
                         vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal][posicaoInicialDireitaParaEsquerda.vertical + 1] = 1;
                         this.pecas++;
 
