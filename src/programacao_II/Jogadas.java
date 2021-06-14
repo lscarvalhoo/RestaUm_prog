@@ -15,6 +15,20 @@ public class Jogadas
         this.tipoMovimento = tipoMovimento;
     }
 
+    public void setPosicaoOriginal (Posicao posicaoOriginal)
+    {
+        this.posicaoOriginal = posicaoOriginal;
+    }
+
+    public void setPosicaoPosJogada (Posicao posicaoPosJogada)
+    {
+        this.posicaoPosJogada = posicaoPosJogada;
+    }
+    public void setTipoMovimento (Movimentos tipoMovimento)
+    {
+        this.tipoMovimento = tipoMovimento;
+    }
+
     public Posicao getPosicaoOriginal() { return posicaoOriginal; }
     public Posicao getPosicaoPosJogada() { return posicaoPosJogada; }
     public Movimentos getTipoMovimento() { return tipoMovimento; }
@@ -24,5 +38,7 @@ public class Jogadas
         System.out.println("Aqui: " + getPosicaoOriginal());
         System.out.println("Antes: " + getPosicaoPosJogada());
         System.out.println("depos: " + getTipoMovimento());
+
+
     }
 }
