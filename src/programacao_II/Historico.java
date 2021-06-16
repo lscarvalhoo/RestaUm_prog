@@ -28,10 +28,10 @@ public class Historico {
         while(!pilhaTemporaria.empty())
         {
             temporario = (Jogadas) pilhaTemporaria.pop();
-            temporario.mostraJogada();
-            System.out.println(" ");
+            //temporario.mostraJogada();
+            System.out.print(" ");
             historicoJogadas.push(temporario);
-            System.out.println(" ");
+            System.out.print(" ");
         }
     }
 }

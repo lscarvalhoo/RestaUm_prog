@@ -5,6 +5,7 @@ public class Jogadas
     Posicao posicaoOriginal = new Posicao();
     Posicao posicaoPosJogada = new Posicao();
     Movimentos tipoMovimento;
+    Tabuleiro tabuleiro;
 
     public Jogadas(){}
 
@@ -33,12 +34,10 @@ public class Jogadas
     public Posicao getPosicaoPosJogada() { return posicaoPosJogada; }
     public Movimentos getTipoMovimento() { return tipoMovimento; }
 
-    public void mostraJogada()
-    {
-        System.out.println("Aqui: " + getPosicaoOriginal());
-        System.out.println("Antes: " + getPosicaoPosJogada());
-        System.out.println("depos: " + getTipoMovimento());
-
-
-    }
+    //public void mostraJogada()
+    //{
+        //System.out.println("Aqui: " + getPosicaoOriginal());
+        //System.out.println("Antes: " + getPosicaoPosJogada());
+        //System.out.println("depos: " + getTipoMovimento());
+    //}
 }
