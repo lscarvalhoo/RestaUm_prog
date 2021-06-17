@@ -83,7 +83,7 @@ public class Tabuleiro {
                     }
                 }
 
-                if (verticalLoop + 2 <= 6 && verticalLoop >= 0)
+                if (verticalLoop + 2 <= 6 && verticalLoop + 2 >= 0 )
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
                         vetorTabuleiro[horizontalLoop][verticalLoop + 2] == 0 &&
@@ -93,10 +93,10 @@ public class Tabuleiro {
                     }
                 }
 
-                if (verticalLoop - 2 >= 0 && verticalLoop - 2 >= 0)
+                if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 6)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 0 &&
-                        vetorTabuleiro[horizontalLoop][verticalLoop - 2] == 1 &&
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
+                        vetorTabuleiro[horizontalLoop][verticalLoop - 2] == 0 &&
                         vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
                     {
                         return true;
@@ -121,9 +121,9 @@ public class Tabuleiro {
                         Posicao posicaoInicialCimaParaBaixo = new Posicao(horizontalLoop, verticalLoop);
                         Posicao posicaoFinalCimaParaBaixo = new Posicao((byte) (horizontalLoop + 2), verticalLoop);
 
-                        vetorTabuleiro[posicaoFinalCimaParaBaixo.horizontal][posicaoFinalCimaParaBaixo.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialCimaParaBaixo.horizontal][posicaoInicialCimaParaBaixo.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialCimaParaBaixo.horizontal + 1][posicaoInicialCimaParaBaixo.vertical] = 0;
+                        vetorTabuleiro[posicaoFinalCimaParaBaixo.getHorizontal()][posicaoFinalCimaParaBaixo.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal()][posicaoInicialCimaParaBaixo.getVertical()] = 0;
+                        vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal() + 1][posicaoInicialCimaParaBaixo.getVertical()] = 1;
                         this.quantidadeDeJogadas++;
                         this.pecas--;
 
@@ -153,9 +153,9 @@ public class Tabuleiro {
                                 }
                             }
                         }
-                        vetorTabuleiro[posicaoFinalCimaParaBaixo.horizontal][posicaoFinalCimaParaBaixo.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialCimaParaBaixo.horizontal][posicaoInicialCimaParaBaixo.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialCimaParaBaixo.horizontal + 1][posicaoInicialCimaParaBaixo.vertical] = 1;
+                        vetorTabuleiro[posicaoFinalCimaParaBaixo.getHorizontal()][posicaoFinalCimaParaBaixo.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal()][posicaoInicialCimaParaBaixo.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal() + 1][posicaoInicialCimaParaBaixo.getVertical()] = 1;
                         this.pecas++;
 
                         armazenaHistoricoJogadas.removeJogada();
@@ -164,15 +164,15 @@ public class Tabuleiro {
 
                 if (horizontalLoop - 2 >= 0 && horizontalLoop + 2 < 9)
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 &&
-                        vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1)
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop - 1][verticalLoop] == 1 &&
+                            vetorTabuleiro[horizontalLoop - 2][verticalLoop] == 0 )
                     {
                         Posicao posicaoInicialBaixoParaCima = new Posicao(horizontalLoop, verticalLoop);
                         Posicao posicaoFinalBaixoParaCima = new Posicao((byte) (horizontalLoop - 2), verticalLoop);
 
-                        vetorTabuleiro[posicaoFinalBaixoParaCima.horizontal][posicaoFinalBaixoParaCima.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialBaixoParaCima.horizontal][posicaoInicialBaixoParaCima.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialBaixoParaCima.horizontal + 1][posicaoInicialBaixoParaCima.vertical] = 0;
+                        vetorTabuleiro[posicaoFinalBaixoParaCima.getHorizontal()][posicaoFinalBaixoParaCima.getVertical()] = 1; //0, 1
+                        vetorTabuleiro[posicaoInicialBaixoParaCima.getHorizontal()][posicaoInicialBaixoParaCima.getVertical()] = 0;
+                        vetorTabuleiro[posicaoInicialBaixoParaCima.getHorizontal() - 1][posicaoInicialBaixoParaCima.getVertical()] = 1;
                         this.quantidadeDeJogadas++;
                         this.pecas--;
 
@@ -202,25 +202,27 @@ public class Tabuleiro {
                                 }
                             }
                         }
-                        vetorTabuleiro[posicaoFinalBaixoParaCima.horizontal][posicaoFinalBaixoParaCima.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialBaixoParaCima.horizontal][posicaoInicialBaixoParaCima.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialBaixoParaCima.horizontal + 1][posicaoInicialBaixoParaCima.vertical] = 1;
+                        vetorTabuleiro[posicaoFinalBaixoParaCima.getHorizontal()][posicaoFinalBaixoParaCima.getVertical()] = 0;
+                        vetorTabuleiro[posicaoInicialBaixoParaCima.getHorizontal()][posicaoInicialBaixoParaCima.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialBaixoParaCima.getHorizontal() - 1][posicaoInicialBaixoParaCima.getVertical()] = 1;
                         this.pecas++;
 
                         armazenaHistoricoJogadas.removeJogada();
                     }
                 }
+
                 if (verticalLoop + 2 <= 6 && verticalLoop + 2 >= 0 )
                 {
-                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop  + 2] == 0 &&
-                            vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1)
+                    if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 &&
+                            vetorTabuleiro[horizontalLoop][verticalLoop + 1] == 1 &&
+                            vetorTabuleiro[horizontalLoop][verticalLoop  + 2] == 0 )
                     {
                         Posicao posicaoInicialEsquerdaParaDireita = new Posicao(horizontalLoop, verticalLoop);
                         Posicao posicaoFinalEsquerdaParaDireita = new Posicao(horizontalLoop, (byte) (verticalLoop + 2));
 
-                        vetorTabuleiro[posicaoFinalEsquerdaParaDireita.horizontal][posicaoFinalEsquerdaParaDireita.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.horizontal][posicaoInicialEsquerdaParaDireita.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.horizontal + 1][posicaoInicialEsquerdaParaDireita.vertical] = 0;
+                        vetorTabuleiro[posicaoFinalEsquerdaParaDireita.getHorizontal()][posicaoFinalEsquerdaParaDireita.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.getHorizontal()][posicaoInicialEsquerdaParaDireita.getVertical()] = 0;
+                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.getHorizontal()][posicaoInicialEsquerdaParaDireita.getVertical() + 1] = 0;
                         this.quantidadeDeJogadas++;
                         this.pecas--;
 
@@ -250,15 +252,16 @@ public class Tabuleiro {
                                 }
                             }
                         }
-                        vetorTabuleiro[posicaoFinalEsquerdaParaDireita.horizontal][posicaoFinalEsquerdaParaDireita.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.horizontal][posicaoInicialEsquerdaParaDireita.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.horizontal][posicaoInicialEsquerdaParaDireita.vertical + 1] = 1;
+                        vetorTabuleiro[posicaoFinalEsquerdaParaDireita.getHorizontal()][posicaoFinalEsquerdaParaDireita.getVertical()] = 0;
+                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.getHorizontal()][posicaoInicialEsquerdaParaDireita.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialEsquerdaParaDireita.getHorizontal()][posicaoInicialEsquerdaParaDireita.getVertical() + 1] = 1;
                         this.pecas++;
 
                         armazenaHistoricoJogadas.removeJogada();
                     }
                 }
-                if (verticalLoop - 2 >= 0)
+
+                if (verticalLoop - 2 >= 0 && verticalLoop - 2 <= 6)
                 {
                     if (vetorTabuleiro[horizontalLoop][verticalLoop] == 1 && vetorTabuleiro[horizontalLoop][verticalLoop - 1] == 1 &&
                             vetorTabuleiro[horizontalLoop][verticalLoop  - 2] == 0)
@@ -266,9 +269,9 @@ public class Tabuleiro {
                         Posicao posicaoInicialDireitaParaEsquerda = new Posicao(horizontalLoop, verticalLoop);
                         Posicao posicaoFinalDireitaParaEsquerda = new Posicao(horizontalLoop, (byte) (verticalLoop - 2));
 
-                        vetorTabuleiro[posicaoFinalDireitaParaEsquerda.horizontal][posicaoFinalDireitaParaEsquerda.vertical] = 1;
-                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal][posicaoInicialDireitaParaEsquerda.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal + 1][posicaoInicialDireitaParaEsquerda.vertical] = 0;
+                        vetorTabuleiro[posicaoFinalDireitaParaEsquerda.getHorizontal()][posicaoFinalDireitaParaEsquerda.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.getHorizontal()][posicaoInicialDireitaParaEsquerda.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.getHorizontal()][posicaoInicialDireitaParaEsquerda.getVertical() - 1] = 0;
                         this.quantidadeDeJogadas++;
                         this.pecas--;
 
@@ -298,15 +301,14 @@ public class Tabuleiro {
                                 }
                             }
                         }
-                        vetorTabuleiro[posicaoFinalDireitaParaEsquerda.horizontal][posicaoFinalDireitaParaEsquerda.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal][posicaoInicialDireitaParaEsquerda.vertical] = 0;
-                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.horizontal][posicaoInicialDireitaParaEsquerda.vertical + 1] = 1;
+                        vetorTabuleiro[posicaoFinalDireitaParaEsquerda.getHorizontal()][posicaoFinalDireitaParaEsquerda.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.getHorizontal()][posicaoInicialDireitaParaEsquerda.getVertical()] = 0;
+                        vetorTabuleiro[posicaoInicialDireitaParaEsquerda.getHorizontal()][posicaoInicialDireitaParaEsquerda.getVertical() - 1] = 0;
                         this.pecas++;
 
                         armazenaHistoricoJogadas.removeJogada();
                     }
                 }
-
             }
         }
     }
