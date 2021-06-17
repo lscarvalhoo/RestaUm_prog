@@ -123,7 +123,7 @@ public class Tabuleiro {
 
                         vetorTabuleiro[posicaoFinalCimaParaBaixo.getHorizontal()][posicaoFinalCimaParaBaixo.getVertical()] = 1;
                         vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal()][posicaoInicialCimaParaBaixo.getVertical()] = 0;
-                        vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal() + 1][posicaoInicialCimaParaBaixo.getVertical()] = 1;
+                        vetorTabuleiro[posicaoInicialCimaParaBaixo.getHorizontal() + 1][posicaoInicialCimaParaBaixo.getVertical()] = 0;
                         this.quantidadeDeJogadas++;
                         this.pecas--;
 
